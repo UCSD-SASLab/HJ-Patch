@@ -1,23 +1,23 @@
-# refineNCBF
+# Patching Neural Barrier Functions with HJ Reachability
 
-Training neural conrol barrier functions and refining them with hamilton jacobi reachability.
+This repository contains the implementation of `HJ-Patch` accompanying the paper Patching Neural Barrier Functions using Hamilton-Jacobi Reachability by Sander Tonkens, Alex Toofanian, Zhizhen Qin, Sicun Gao, and Sylvia Herbert, submitted to IEEE Conference on Decision and Control (CDC), 2023
+
+This project locally patches almost-barrier functions to guarantee safety, providing a 10-100x speedup over using vanilla HJ reachability
+
+
+## Requirements
+
+- `hj_reachability` package: https://github.com/toofanian/hj_reachability. Custom fork that accepts an ``active'' region to be updated (although no speed up)
+- `optimized_dp` package: https://github.com/toofanian/optimized_dp. Custom fork that accepts an ``active'' region and has a speedup from only computing on subset of states
+- `cbf_opt` package: https://github.com/stonkens/cbf_opt
+- For post-hoc analysis: `experiment_wrapper` package: https://github.com/stonkens/experiment_wrapper
+
 
 ## Installation
 
-hj_reachability package requires the toofanian:hj_reachability fork, email alextoofanian@gmail.com for access.
+Install all requirements and its dependencies using `pip install -e .` in your local conda environment. Then clone this repository and run `pip install -e .`
 
 ## Usage
-
-Example scripts and notebooks are in the `scripts` folder.
-
-## Contributing
-
-Repo is split into `data`, `scripts`, `tests`, and `refineNCBF` folders. All core functions are kept in the `refineNCBF` folder. Implementation scripts are
-written in `scripts` folder. `data` folder contains all data files. `tests` folder contains all test scripts.
-
-### refineNCBF folder structure
-
-* training functions go in the training folder: `refineNCBF/training`
-* refinement functions go in the refinement folder: `refineNCBF/refinement`
-* shared specialized functions (ex: dynamic systems) go in the top level folder: `refineNCBF`
-* basic util functions go in the utils folder: `refineNCBF/utils`
+- `refineNCBF` contains all source code for interfacing with the `optimized_dp` and the `hj_reachability` solvers. Contains the `HJ-Patch` and vanilla HJ reachability implementations and a wide variety of implementation possibilities (different expansion methods, different breaking conditions, etc.)
+- `scripts`: Contains codes that were used for generating the results in the paper
+- `data`: Contains all the data functions (lfs will be added at a later stage)
