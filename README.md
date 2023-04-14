@@ -1,6 +1,6 @@
 # Patching Neural Barrier Functions with HJ Reachability
 
-This repository contains the implementation of `HJ-Patch` accompanying the paper Patching Neural Barrier Functions using Hamilton-Jacobi Reachability by Sander Tonkens, Alex Toofanian, Zhizhen Qin, Sicun Gao, and Sylvia Herbert, submitted to IEEE Conference on Decision and Control (CDC), 2023
+This repository contains the implementation of `HJ-Patch` accompanying the paper [Patching Neural Barrier Functions using Hamilton-Jacobi Reachability](https://github.com/UCSD-SASLab/HJ-Patch/blob/main/paper.pdf) by Sander Tonkens, Alex Toofanian, Zhizhen Qin, Sicun Gao, and Sylvia Herbert, submitted to IEEE Conference on Decision and Control (CDC), 2023
 
 This project locally patches almost-barrier functions to guarantee safety, providing a 10-100x speedup over using vanilla HJ reachability
 
